@@ -26,8 +26,136 @@ Extension to whey to support .pth files.
 #  OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+# stdlib
+from typing import Dict, List
+
+# 3rd party
+import toml
+from domdf_python_tools.paths import PathPlus
+from whey import WheelBuilder
+from whey.config import TOML_TYPES, AbstractConfigParser, BadConfigError
+
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
 __license__: str = "MIT License"
 __version__: str = "0.0.0"
 __email__: str = "dominic@davis-foster.co.uk"
+
+__all__ = ["PthWheelBuilder", "WheyPthParser"]
+
+
+class PthWheelBuilder(WheelBuilder):
+	"""
+	Builds wheel binary distributions using metadata read from ``pyproject.toml``.
+
+	This builder has added support for creating ``.pth`` files.
+
+	:param project_dir: The project to build the distribution for.
+	:param build_dir: The (temporary) build directory.
+	:default build_dir: :file:`{<project_dir>}/build/wheel`
+	:param out_dir: The output directory.
+	:default out_dir: :file:`{<project_dir>}/dist`
+	:param verbose: Enable verbose output.
+	"""
+
+	def write_pth_files(self):
+		"""
+		Write ``.pth`` files, and their associated files, into the build directory.
+		"""
+
+		config = toml.loads(PathPlus(self.project_dir / "pyproject.toml").read_text())
+
+		if "whey-pth" not in config.get("tool", {}):
+			return
+
+		parsed_config = WheyPthParser().parse(config["tool"]["whey-pth"])
+
+		pth_filename = self.build_dir / parsed_config["name"]
+
+		if not pth_filename.suffix == ".pth":
+			pth_filename = pth_filename.with_suffix(".pth")
+
+		pth_filename.write_clean(parsed_config["pth-content"])
+		self.report_written(pth_filename)
+
+		self.parse_additional_files(*parsed_config["additional-wheel-files"])
+
+	call_additional_hooks = write_pth_files
+
+
+class WheyPthParser(AbstractConfigParser):
+	"""
+	Parser for the ``[tool.whey-pth]`` table from ``pyproject.toml``.
+	"""
+
+	def parse_name(self, config: Dict[str, TOML_TYPES]) -> str:
+		"""
+		Parse the ``name`` key, giving the desired name of the ``.pth`` file.
+
+		:param config: The unparsed TOML config for the ``[tool.whey-pth]`` table.
+		"""
+
+		name = config["name"]
+
+		self.assert_type(name, str, ["tool", "whey-pth", "name"])
+
+		return name
+
+	def parse_pth_content(self, config: Dict[str, TOML_TYPES]) -> str:
+		"""
+		Parse the ``pth-content`` key, giving the content of the ``.pth`` file.
+
+		:param config: The unparsed TOML config for the ``[tool.whey-pth]`` table.
+		"""
+
+		pth_content = config["pth-content"]
+
+		self.assert_type(pth_content, str, ["tool", "whey-pth", "pth-content"])
+
+		return pth_content
+
+	def parse_additional_wheel_files(self, config: Dict[str, TOML_TYPES]) -> List[str]:
+		"""
+		Parse the ``additional-wheel-files`` key,
+		giving `MANIFEST.in <https://packaging.python.org/guides/using-manifest-in/>`_-style
+		entries for additional files to include in the wheel.
+
+		:param config: The unparsed TOML config for the ``[tool.whey-pth]`` table.
+		"""  # noqa: D400
+
+		additional_files = config["additional-wheel-files"]
+
+		for idx, file in enumerate(additional_files):
+			self.assert_indexed_type(file, str, ["tool", "whey", "additional-wheel-files"], idx=idx)
+
+		return additional_files
+
+	@property
+	def keys(self) -> List[str]:
+		"""
+		The keys to parse from the TOML file.
+		"""
+
+		return [
+				"name",
+				"pth-content",
+				"additional-wheel-files",
+				]
+
+	def parse(self, config: Dict[str, TOML_TYPES]) -> Dict[str, TOML_TYPES]:
+		"""
+		Parse the TOML configuration.
+
+		:param config:
+		"""
+
+		if "name" not in config:
+			raise BadConfigError("The [tool.whey-pth.name] key is required.")
+		if "pth-content" not in config:
+			raise BadConfigError("The [tool.whey-pth.pth-content] key is required.")
+
+		parsed_config = super().parse(config)
+
+		parsed_config.setdefault("additional-wheel-files", [])
+
+		return parsed_config

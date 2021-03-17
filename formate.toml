@@ -40,5 +40,7 @@ known_third_party = [
     "pytest_cov",
     "pytest_randomly",
     "pytest_timeout",
+    "toml",
+    "whey",
 ]
 known_first_party = "whey_pth"
