@@ -1,0 +1,58 @@
+# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
+---
+modname: 'whey-pth'
+copyright_years: '2021'
+author: 'Dominic Davis-Foster'
+email: 'dominic@davis-foster.co.uk'
+username: 'repo-helper'
+assignee: 'domdfcoding'
+primary_conda_channel: "domdfcoding"
+version: '0.0.0'
+license: 'MIT'
+short_desc: 'Extension to whey to support .pth files.'
+
+min_coverage: 90
+python_deploy_version: 3.6
+docs_fail_on_warning: true
+sphinx_html_theme: furo
+
+conda_channels:
+ - conda-forge
+
+# Versions to run tests for
+python_versions:
+ - '3.6'
+ - '3.7'
+ - '3.8'
+ - '3.9'
+ - 3.10-dev
+ - pypy3.6
+ - pypy3.7
+
+sphinx_conf_epilogue:
+ - nitpicky = True
+
+extra_sphinx_extensions:
+ - sphinx_click
+ - configconfig.autoconfig
+
+classifiers:
+ - 'Development Status :: 3 - Alpha'
+ - 'Environment :: Console'
+ - 'Intended Audience :: Developers'
+ - 'Topic :: Software Development :: Libraries :: Python Modules'
+ - "Topic :: Software Development :: Build Tools"
+ - "Topic :: System :: Archiving :: Packaging"
+
+keywords:
+ - pep517
+ - pep621
+ - build
+ - sdist
+ - wheel
+ - packaging
+ - distribution
+
+entry_points:
+ whey.builder:
+  - "whey_pth_wheel = whey_pth:WheelBuilder"

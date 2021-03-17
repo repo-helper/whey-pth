@@ -1,0 +1,26 @@
+[build-system]
+requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whey-pth"
+version = "0.0.0"
+description = "Extension to whey to support .pth files."
+readme = "README.rst"
+keywords = [ "pep517", "pep621", "build", "sdist", "wheel", "packaging", "distribution",]
+dynamic = [ "requires-python", "classifiers", "dependencies",]
+[[project.authors]]
+email = "dominic@davis-foster.co.uk"
+name = "Dominic Davis-Foster"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/repo-helper/whey-pth"
+"Issue Tracker" = "https://github.com/repo-helper/whey-pth/issues"
+"Source Code" = "https://github.com/repo-helper/whey-pth"
+Documentation = "https://whey-pth.readthedocs.io/en/latest"
+
+[project.entry-points."whey.builder"]
+whey_pth_wheel = "whey_pth:WheelBuilder"
