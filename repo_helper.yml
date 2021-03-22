@@ -56,3 +56,6 @@ keywords:
 entry_points:
  whey.builder:
   - "whey_pth_wheel = whey_pth:PthWheelBuilder"
+
+intersphinx_mapping:
+ - "'domdf_python_tools': ('https://domdf-python-tools.readthedocs.io/en/latest', None)"
