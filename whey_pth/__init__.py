@@ -30,10 +30,9 @@ Extension to whey to support .pth files.
 from typing import Dict, List
 
 # 3rd party
-import toml
-from domdf_python_tools.paths import PathPlus
+import dom_toml
+from dom_toml.parser import TOML_TYPES, AbstractConfigParser, BadConfigError
 from whey import WheelBuilder
-from whey.config import TOML_TYPES, AbstractConfigParser, BadConfigError
 
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
@@ -63,7 +62,7 @@ class PthWheelBuilder(WheelBuilder):
 		Write ``.pth`` files, and their associated files, into the build directory.
 		"""
 
-		config = toml.loads(PathPlus(self.project_dir / "pyproject.toml").read_text())
+		config = dom_toml.load(self.project_dir / "pyproject.toml")
 
 		if "whey-pth" not in config.get("tool", {}):
 			return
