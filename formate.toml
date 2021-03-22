@@ -35,6 +35,7 @@ known_third_party = [
     "coincidence",
     "coverage",
     "coverage_pyver_pragma",
+    "dom_toml",
     "domdf_python_tools",
     "pytest",
     "pytest_cov",

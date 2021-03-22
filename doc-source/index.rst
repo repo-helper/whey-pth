@@ -4,7 +4,7 @@ whey-pth
 
 .. start short_desc
 
-**Extension to whey to support .pth files.**
+.. documentation-summary::
 
 .. end short_desc
 
