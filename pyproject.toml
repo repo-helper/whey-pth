@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "whey-pth"
-version = "0.0.1"
+version = "0.0.2"
 description = "Extension to whey to support .pth files."
 readme = "README.rst"
 keywords = [ "whey", "build", "wheel", "packaging", "distribution",]
