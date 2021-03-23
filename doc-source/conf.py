@@ -34,6 +34,7 @@ extensions = [
 		"sphinx_toolbox",
 		"sphinx_toolbox.more_autodoc",
 		"sphinx_toolbox.more_autosummary",
+		"sphinx_toolbox.documentation_summary",
 		"sphinx_toolbox.tweaks.param_dash",
 		"sphinx_toolbox.tweaks.latex_toc",
 		"sphinx.ext.intersphinx",
@@ -66,6 +67,7 @@ pygments_style = "default"
 intersphinx_mapping = {
 		"python": ("https://docs.python.org/3/", None),
 		"sphinx": ("https://www.sphinx-doc.org/en/stable/", None),
+		"domdf_python_tools": ("https://domdf-python-tools.readthedocs.io/en/latest", None),
 		}
 
 html_theme = "furo"
@@ -112,7 +114,7 @@ add_module_names = False
 hide_none_rtype = True
 all_typevars = True
 overloads_location = "bottom"
-
+documentation_summary = "Extension to whey to support .pth files."
 
 autodoc_exclude_members = [   # Exclude "standard" methods.
 		"__dict__",
