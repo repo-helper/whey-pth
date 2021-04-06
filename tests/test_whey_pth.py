@@ -372,3 +372,14 @@ def test_badconfig():
 
 	with pytest.raises(BadConfigError, match=r"The \[tool.whey-pth.pth-content\] key is required."):
 		WheyPthParser().parse({"name": "foo"})
+
+
+def test_badconfig_set_defaults():
+	with pytest.raises(BadConfigError, match=r"The \[tool.whey-pth.name\] key is required."):
+		WheyPthParser().parse({}, set_defaults=True)
+
+	with pytest.raises(BadConfigError, match=r"The \[tool.whey-pth.name\] key is required."):
+		WheyPthParser().parse({"pth-content": "import _virtualenv"}, set_defaults=True)
+
+	with pytest.raises(BadConfigError, match=r"The \[tool.whey-pth.pth-content\] key is required."):
+		WheyPthParser().parse({"name": "foo"}, set_defaults=True)

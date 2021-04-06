@@ -1,2 +1,2 @@
-dom-toml>=0.2.0
-whey>=0.0.5
+dom-toml>=0.3.0
+whey>=0.0.8

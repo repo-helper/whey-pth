@@ -67,7 +67,7 @@ class PthWheelBuilder(WheelBuilder):
 		if "whey-pth" not in config.get("tool", {}):
 			return
 
-		parsed_config = WheyPthParser().parse(config["tool"]["whey-pth"])
+		parsed_config = WheyPthParser().parse(config["tool"]["whey-pth"], set_defaults=True)
 
 		pth_filename = self.build_dir / parsed_config["name"]
 
@@ -86,6 +86,8 @@ class WheyPthParser(AbstractConfigParser):
 	"""
 	Parser for the ``[tool.whey-pth]`` table from ``pyproject.toml``.
 	"""
+
+	factories = {"additional-wheel-files": list}
 
 	def parse_name(self, config: Dict[str, TOML_TYPES]) -> str:
 		"""
@@ -141,11 +143,17 @@ class WheyPthParser(AbstractConfigParser):
 				"additional-wheel-files",
 				]
 
-	def parse(self, config: Dict[str, TOML_TYPES]) -> Dict[str, TOML_TYPES]:
+	def parse(
+			self,
+			config: Dict[str, TOML_TYPES],
+			set_defaults: bool = False,
+			) -> Dict[str, TOML_TYPES]:
 		"""
 		Parse the TOML configuration.
 
 		:param config:
+		:param set_defaults: If :py:obj:`True`, the values in :attr:`dom_toml.parser.AbstractConfigParser.defaults`
+			and :attr:`dom_toml.parser.AbstractConfigParser.factories` will be set as defaults for the returned mapping.
 		"""
 
 		if "name" not in config:
@@ -153,8 +161,6 @@ class WheyPthParser(AbstractConfigParser):
 		if "pth-content" not in config:
 			raise BadConfigError("The [tool.whey-pth.pth-content] key is required.")
 
-		parsed_config = super().parse(config)
-
-		parsed_config.setdefault("additional-wheel-files", [])
+		parsed_config = super().parse(config, set_defaults=set_defaults)
 
 		return parsed_config
