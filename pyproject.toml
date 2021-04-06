@@ -9,9 +9,11 @@ description = "Extension to whey to support .pth files."
 readme = "README.rst"
 keywords = [ "whey", "build", "wheel", "packaging", "distribution",]
 dynamic = [ "requires-python", "classifiers", "dependencies",]
+
 [[project.authors]]
 email = "dominic@davis-foster.co.uk"
 name = "Dominic Davis-Foster"
+
 
 [project.license]
 file = "LICENSE"
@@ -21,6 +23,12 @@ Homepage = "https://github.com/repo-helper/whey-pth"
 "Issue Tracker" = "https://github.com/repo-helper/whey-pth/issues"
 "Source Code" = "https://github.com/repo-helper/whey-pth"
 Documentation = "https://whey-pth.readthedocs.io/en/latest"
+
+[tool.mkrecipe]
+conda-channels = [ "conda-forge", "domdfcoding",]
+extras = "all"
+license-key = "MIT"
+package = "whey_pth"
 
 [project.entry-points."whey.builder"]
 whey_pth_wheel = "whey_pth:PthWheelBuilder"
