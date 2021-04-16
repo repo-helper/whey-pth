@@ -38,6 +38,7 @@ known_third_party = [
     "coverage_pyver_pragma",
     "dom_toml",
     "domdf_python_tools",
+    "importlib_metadata",
     "pytest",
     "pytest_cov",
     "pytest_randomly",
