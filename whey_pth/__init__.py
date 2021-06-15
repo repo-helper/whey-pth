@@ -32,7 +32,7 @@ from typing import Dict, List
 # 3rd party
 import dom_toml
 from dom_toml.parser import TOML_TYPES, AbstractConfigParser, BadConfigError
-from whey import WheelBuilder
+from whey.builder import WheelBuilder
 
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
