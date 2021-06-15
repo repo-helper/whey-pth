@@ -32,10 +32,15 @@ python_versions:
 
 sphinx_conf_epilogue:
  - nitpicky = True
+ - toml_spec_version = "0.5.0"
 
 extra_sphinx_extensions:
- - sphinx_click
  - configconfig.autoconfig
+ - sphinx_toolbox_experimental.html_section
+ - sphinx_toolbox_experimental.autosummary_widths
+ - sphinx_toolbox_experimental.needspace
+ - sphinx_toolbox_experimental.peps
+ - sphinx_toolbox_experimental.toml
 
 classifiers:
  - 'Development Status :: 3 - Alpha'
@@ -58,3 +63,6 @@ entry_points:
 
 intersphinx_mapping:
  - "'domdf_python_tools': ('https://domdf-python-tools.readthedocs.io/en/latest', None)"
+
+exclude_files:
+ - contributing

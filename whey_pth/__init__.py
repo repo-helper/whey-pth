@@ -55,11 +55,16 @@ class PthWheelBuilder(WheelBuilder):
 	:param out_dir: The output directory.
 	:default out_dir: :file:`{<project_dir>}/dist`
 	:param verbose: Enable verbose output.
+
+	.. autosummary-widths:: 5/16
+		:html: 3/10
 	"""
 
 	def write_pth_files(self):
 		"""
 		Write ``.pth`` files, and their associated files, into the build directory.
+
+		.. latex:clearpage::
 		"""
 
 		config = dom_toml.load(self.project_dir / "pyproject.toml")
@@ -85,6 +90,9 @@ class PthWheelBuilder(WheelBuilder):
 class WheyPthParser(AbstractConfigParser):
 	"""
 	Parser for the ``[tool.whey-pth]`` table from ``pyproject.toml``.
+
+	.. autosummary-widths:: 1/2
+		:html: 45/100
 	"""
 
 	factories = {"additional-wheel-files": list}
@@ -117,12 +125,13 @@ class WheyPthParser(AbstractConfigParser):
 
 	def parse_additional_wheel_files(self, config: Dict[str, TOML_TYPES]) -> List[str]:
 		"""
-		Parse the ``additional-wheel-files`` key,
-		giving `MANIFEST.in <https://packaging.python.org/guides/using-manifest-in/>`_-style
+		Parse the ``additional-wheel-files`` key.
+
+		The value is a list of `MANIFEST.in <https://packaging.python.org/guides/using-manifest-in/>`_-style
 		entries for additional files to include in the wheel.
 
 		:param config: The unparsed TOML config for the ``[tool.whey-pth]`` table.
-		"""  # noqa: D400
+		"""
 
 		additional_files = config["additional-wheel-files"]
 
@@ -152,8 +161,10 @@ class WheyPthParser(AbstractConfigParser):
 		Parse the TOML configuration.
 
 		:param config:
-		:param set_defaults: If :py:obj:`True`, the values in :attr:`dom_toml.parser.AbstractConfigParser.defaults`
-			and :attr:`dom_toml.parser.AbstractConfigParser.factories` will be set as defaults for the returned mapping.
+		:param set_defaults: If :py:obj:`True`, the values in
+			:attr:`self.defaults <dom_toml.parser.AbstractConfigParser.defaults>`
+			and :attr:`self.factories <dom_toml.parser.AbstractConfigParser.factories>`
+			will be set as defaults for the returned mapping.
 		"""
 
 		if "name" not in config:

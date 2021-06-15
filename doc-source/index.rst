@@ -139,6 +139,8 @@ Installation
 Contents
 -----------
 
+.. html-section::
+
 .. toctree::
 	:hidden:
 
@@ -146,12 +148,10 @@ Contents
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
 	:glob:
 
 	configuration
 	api
-	contributing
 	Source
 
 .. sidebar-links::
@@ -159,6 +159,7 @@ Contents
 	:github:
 	:pypi: whey-pth
 
+	Contributing Guide <https://contributing.repo-helper.uk>
 
 .. start links
 

@@ -79,3 +79,4 @@ def setup(app):
 
 
 nitpicky = True
+toml_spec_version = "0.5.0"

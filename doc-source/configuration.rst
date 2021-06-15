@@ -16,43 +16,46 @@ To enable ``whey-pth``, add the following lines to your ``pyprojet.toml`` file:
 	[tool.whey.builders]
 	wheel = "whey_pth_wheel"
 
+The ``whey-pth``-specific configuration is defined in the ``tool.whey-pth`` table.
+
 
 ``[tool.whey-pth]``
 -------------------
 
-As a minimum, this table should contain the keys ``name`` and ``pth-contents``.
+As a minimum, this table should contain the keys :conf:`name` and :conf:`pth-content`.
+
 
 .. conf:: name
 
-	**Type**: :class:`str`
+	**Type**: :toml:`String`
 
 	The filename of the ``.pth`` file, relative to the root of the distribution archive.
 	If the filename does not end with ``.pth`` the extension will be appended automatically.
 
-	**Example**:
+	:bold-title:`Example:`
 
 	.. code-block:: TOML
 
-		[tool.whey-pth]
+		[tool.whey-conda]
 		name = "virtualenv.pth"
 
 .. conf:: pth-content
 
-	**Type**: :class:`str`
+	**Type**: :toml:`String`
 
 	The content of the ``.pth`` file. See https://docs.python.org/3/library/site.html for details on the expected contents of the file.
 
-	**Example**:
+	:bold-title:`Example:`
 
 	.. code-block:: TOML
 
-		[tool.whey-pth]
+		[tool.whey-conda]
 		name = "virtualenv.pth"
 
 
 .. conf:: additional-wheel-files
 
-	**Type**: :class:`list`\[:class:`str`\]
+	**Type**: :toml:`Array` of :toml:`strings <String>`
 
 	A list of `MANIFEST.in <https://packaging.python.org/guides/using-manifest-in/>`_-style
 	entries for additional files to include in the wheel.
@@ -67,3 +70,5 @@ As a minimum, this table should contain the keys ``name`` and ``pth-contents``.
 	:samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
 	:samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
 	=========================================================  ==================================================================================================
+
+	.. TODO:: example
