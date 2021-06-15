@@ -5,6 +5,7 @@ whey-pth
 .. start short_desc
 
 .. documentation-summary::
+	:meta:
 
 .. end short_desc
 
@@ -153,12 +154,18 @@ Contents
 	contributing
 	Source
 
+.. sidebar-links::
+	:caption: Links
+	:github:
+	:pypi: whey-pth
+
+
 .. start links
 
 .. only:: html
 
 	View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
-	`Browse the GitHub Repository <https://github.com/repo-helper/whey-pth>`__
+	:github:repo:`Browse the GitHub Repository <repo-helper/whey-pth>`
 
 .. end links
