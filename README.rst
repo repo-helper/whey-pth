@@ -147,3 +147,17 @@ To install with ``conda``:
 		$ conda install whey-pth
 
 .. end installation
+
+-----
+
+To enable ``whey-pth``, add the following lines to your ``pyproject.toml`` file:
+
+.. code-block:: TOML
+
+	[tool.whey.builders]
+	wheel = "whey_pth_wheel"
+
+The ``whey-pth``-specific configuration is defined in the ``tool.whey-pth`` table.
+See `the documentation`_ for more details.
+
+.. _the documentation: https://whey-pth.readthedocs.io/en/latest/
