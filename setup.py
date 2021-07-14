@@ -21,8 +21,8 @@ setup(
 		description="Extension to whey to support .pth files.",
 		extras_require=extras_require,
 		install_requires=install_requires,
+		name="whey-pth",
 		py_modules=[],
-		version=__version__,
 		)
 
 shutil.rmtree("whey_pth.egg-info", ignore_errors=True)
