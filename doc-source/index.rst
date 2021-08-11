@@ -153,6 +153,7 @@ Contents
 	configuration
 	api
 	Source
+	license
 
 .. sidebar-links::
 	:caption: Links
