@@ -36,7 +36,7 @@ As a minimum, this table should contain the keys :conf:`name` and :conf:`pth-con
 
 	.. code-block:: TOML
 
-		[tool.whey-conda]
+		[tool.whey-pth]
 		name = "virtualenv.pth"
 
 .. conf:: pth-content
@@ -49,8 +49,8 @@ As a minimum, this table should contain the keys :conf:`name` and :conf:`pth-con
 
 	.. code-block:: TOML
 
-		[tool.whey-conda]
-		name = "virtualenv.pth"
+		[tool.whey-pth]
+		pth-content = "import _virtualenv"
 
 
 .. conf:: additional-wheel-files
