@@ -7,9 +7,8 @@ name = "whey-pth"
 version = "0.0.4"
 description = "Extension to whey to support .pth files."
 readme = "README.rst"
-keywords = [ "build", "distribution", "packaging", "wheel", "whey",]
-dynamic = [ "dependencies",]
 requires-python = ">=3.6.1"
+keywords = [ "build", "distribution", "packaging", "wheel", "whey",]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",
@@ -29,6 +28,7 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Typing :: Typed",
 ]
+dynamic = [ "dependencies",]
 
 [[project.authors]]
 name = "Dominic Davis-Foster"
