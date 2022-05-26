@@ -80,11 +80,9 @@ extensions = [
     "seed_intersphinx_mapping",
     "html_section",
     "configconfig.autoconfig",
-    "sphinx_toolbox_experimental.html_section",
-    "sphinx_toolbox_experimental.autosummary_widths",
-    "sphinx_toolbox_experimental.needspace",
-    "sphinx_toolbox_experimental.peps",
-    "sphinx_toolbox_experimental.toml",
+    "sphinx_toolbox.more_autosummary.column_widths",
+    "sphinx_packaging.peps",
+    "sphinx_packaging.toml",
 ]
 sphinxemoji_style = "twemoji"
 gitstamp_fmt = "%d %b %Y"

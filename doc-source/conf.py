@@ -80,3 +80,4 @@ def setup(app):
 
 nitpicky = True
 toml_spec_version = "0.5.0"
+needspace_amount = r"5\baselineskip"

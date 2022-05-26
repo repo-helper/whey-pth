@@ -57,7 +57,6 @@ class PthWheelBuilder(WheelBuilder):
 	:param verbose: Enable verbose output.
 
 	.. autosummary-widths:: 5/16
-		:html: 3/10
 	"""
 
 	def write_pth_files(self):
@@ -92,7 +91,6 @@ class WheyPthParser(AbstractConfigParser):
 	Parser for the ``[tool.whey-pth]`` table from ``pyproject.toml``.
 
 	.. autosummary-widths:: 1/2
-		:html: 45/100
 	"""
 
 	factories = {"additional-wheel-files": list}
