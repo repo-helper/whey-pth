@@ -60,8 +60,8 @@ whey-pth
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/repo-helper/whey-pth/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/repo-helper/whey-pth/
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/repo-helper/whey-pth/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/repo-helper/whey-pth/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
