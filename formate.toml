@@ -46,4 +46,4 @@ known_third_party = [
     "toml",
     "whey",
 ]
-known_first_party = "whey_pth"
+known_first_party = [ "whey_pth",]
