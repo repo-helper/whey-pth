@@ -32,6 +32,7 @@ from typing import Dict, List
 # 3rd party
 import dom_toml
 from dom_toml.parser import TOML_TYPES, AbstractConfigParser, BadConfigError
+from whey import additional_files
 from whey.builder import WheelBuilder
 
 __author__: str = "Dominic Davis-Foster"
@@ -121,7 +122,10 @@ class WheyPthParser(AbstractConfigParser):
 
 		return pth_content
 
-	def parse_additional_wheel_files(self, config: Dict[str, TOML_TYPES]) -> List[str]:
+	def parse_additional_wheel_files(
+			self,
+			config: Dict[str, TOML_TYPES],
+			) -> List[additional_files.AdditionalFilesEntry]:
 		"""
 		Parse the ``additional-wheel-files`` key.
 
@@ -131,12 +135,19 @@ class WheyPthParser(AbstractConfigParser):
 		:param config: The unparsed TOML config for the ``[tool.whey-pth]`` table.
 		"""
 
-		additional_files = config["additional-wheel-files"]
+		entries = config["additional-wheel-files"]
 
-		for idx, file in enumerate(additional_files):
+		for idx, file in enumerate(entries):
 			self.assert_indexed_type(file, str, ["tool", "whey", "additional-wheel-files"], idx=idx)
 
-		return additional_files
+		parsed_additional_files = []
+
+		for entry in entries:
+			parsed_entry = additional_files.from_entry(entry)
+			if parsed_entry is not None:
+				parsed_additional_files.append(parsed_entry)
+
+		return parsed_additional_files
 
 	@property
 	def keys(self) -> List[str]:
