@@ -113,7 +113,7 @@ whey-pth
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/whey-pth
-	:target: https://pypi.org/project/whey-pth/
+	:target: https://pypistats.org/packages/whey-pth
 	:alt: PyPI - Downloads
 
 .. end shields
