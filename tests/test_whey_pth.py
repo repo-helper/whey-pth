@@ -159,7 +159,7 @@ pth-content = "import _virtualenv"
 				pytest.param(WHEY_NO_PTH, id="WHEY_NO_PTH"),
 				pytest.param(COMPLETE_A, id="COMPLETE_A"),
 				pytest.param(COMPLETE_B, id="COMPLETE_B"),
-				]
+				],
 		)
 def test_build_complete(
 		config: str,
@@ -238,7 +238,7 @@ def test_build_complete(
 				pytest.param(WHEY_NO_PTH, id="WHEY_NO_PTH"),
 				pytest.param(COMPLETE_A, id="COMPLETE_A"),
 				pytest.param(COMPLETE_B, id="COMPLETE_B"),
-				]
+				],
 		)
 def test_build_complete_foreman(
 		config: str,
