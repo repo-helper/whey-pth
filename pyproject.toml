@@ -49,12 +49,6 @@ Documentation = "https://whey-pth.readthedocs.io/en/latest"
 [project.entry-points."whey.builder"]
 whey_pth_wheel = "whey_pth:PthWheelBuilder"
 
-[tool.mkrecipe]
-conda-channels = [ "conda-forge", "domdfcoding",]
-extras = "all"
-license-key = "MIT"
-package = "whey_pth"
-
 [tool.sphinx-pyproject]
 github_username = "repo-helper"
 github_repository = "whey-pth"

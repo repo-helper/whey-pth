@@ -90,12 +90,12 @@ whey-pth
 		:wheel:
 		:alt: PyPI - Wheel
 
-	.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/whey-pth?logo=anaconda
-		:target: https://anaconda.org/domdfcoding/whey-pth
+	.. |conda-version| image:: https://img.shields.io/conda/v/conda-forge/whey-pth?logo=anaconda
+		:target: https://anaconda.org/conda-forge/whey-pth
 		:alt: Conda - Package Version
 
-	.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/whey-pth?label=conda%7Cplatform
-		:target: https://anaconda.org/domdfcoding/whey-pth
+	.. |conda-platform| image:: https://img.shields.io/conda/pn/conda-forge/whey-pth?label=conda%7Cplatform
+		:target: https://anaconda.org/conda-forge/whey-pth
 		:alt: Conda - Platform
 
 	.. |license| github-shield::
@@ -133,7 +133,7 @@ Installation
 	:pypi:
 	:github:
 	:anaconda:
-	:conda-channels: conda-forge, domdfcoding
+	:conda-channels: conda-forge
 
 .. end installation
 

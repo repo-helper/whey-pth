@@ -86,12 +86,12 @@ whey-pth
 	:target: https://pypi.org/project/whey-pth/
 	:alt: PyPI - Wheel
 
-.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/whey-pth?logo=anaconda
-	:target: https://anaconda.org/domdfcoding/whey-pth
+.. |conda-version| image:: https://img.shields.io/conda/v/conda-forge/whey-pth?logo=anaconda
+	:target: https://anaconda.org/conda-forge/whey-pth
 	:alt: Conda - Package Version
 
-.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/whey-pth?label=conda%7Cplatform
-	:target: https://anaconda.org/domdfcoding/whey-pth
+.. |conda-platform| image:: https://img.shields.io/conda/pn/conda-forge/whey-pth?label=conda%7Cplatform
+	:target: https://anaconda.org/conda-forge/whey-pth
 	:alt: Conda - Platform
 
 .. |license| image:: https://img.shields.io/github/license/repo-helper/whey-pth
@@ -133,18 +133,9 @@ To install with ``pip``:
 
 To install with ``conda``:
 
-	* First add the required channels
+.. code-block:: bash
 
-	.. code-block:: bash
-
-		$ conda config --add channels https://conda.anaconda.org/conda-forge
-		$ conda config --add channels https://conda.anaconda.org/domdfcoding
-
-	* Then install
-
-	.. code-block:: bash
-
-		$ conda install whey-pth
+	$ conda install -c conda-forge whey-pth
 
 .. end installation
 
